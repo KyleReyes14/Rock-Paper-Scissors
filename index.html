@@ -8,40 +8,41 @@
 </head>
 <body>
     <div class="page">
-        <div class="top">
-            <h1> Rock Paper Scissors Game</h1>
-        </div>
+        
+        <h1 class="top"> Rock Paper Scissors Game</h1>
+
+        <div class="rounds">Round Number: </div>
 
         <div class="scores">
             <div class="player-score"> Player Score: </div>
             <div class="computer-score"> Computer Score: </div>
         </div>
 
-        <div class="rounds">Round Number: </div>
-
         <div class="round-turnoff">
             <div class="player-pick-container">
-                <div class="score-bar"> You : <span id="score"> 0 </span> </div>
-                <div class="player-pick"> still unsure how </div>
+                <div class="score-bar"> You </div>
+                <p class="player-pick"> still unsure how </p>
+            </div>
+             <div class="computer-pick-container">
+                <div class="score-bar"> Opponent </span> </div>
+                <p class="computer-pick"> still unsure how </p>
             </div>
         </div>
 
         <div class="player-input">
             <div class="rock">
-                <button class="rps-card" value="rock"> <img src="./images/rock.png" alt="Rock hand"/></button>
+                <button class="rps-card" value="rock"> <img src="./images/rock.png" alt="Rock hand" class="img-rps-card"/></button>
             </div>
             <div class="paper">
-                <button class="rps-card" value="paper"><img src="./images/paper.png" alt="Paper hand"/></button>
+                <button class="rps-card" value="paper"><img src="./images/paper.png" alt="Paper hand" class="img-rps-card"/></button>
             </div>
             <div class="scissors">
-                <button class="rps-card" value="scissors"><img src="./images/scissors.png" alt="Scissors hand"/></button>
+                <button class="rps-card" value="scissors"><img src="./images/scissors.png" alt="Scissors hand" class="img-rps-card"/></button>
             </div>
         </div>
 
-        <div class="opponent-pick"> Opponent's Pick: </div>
-
         <div class="again">
-            <button id="play-again"> Play again? </button>
+            <button id="play-again"> Submit Weapon </button>
         </div>
 
     </div>
