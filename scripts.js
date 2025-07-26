@@ -13,34 +13,43 @@ function getComputerChoice () {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    let playerPick = ""
     const playerRock = document.getElementById("player-rock");
     const playerPaper = document.getElementById("player-paper");
     const playerScissors = document.getElementById("player-scissors");
     const computerPickContainer = document.getElementById("computer-pick");
+    const submit = document.getElementById("submit-btn")
     
     playerRock.addEventListener("click", () => {
         let playerPickContainer = document.getElementById("player-pick")
         playerPickContainer.innerHTML = `<img src="./images/rock-inserted.png" alt="Rock hand" class="inserted-img">`
+        computerPickContainer.innerHTML = `<p class="computer" id="computer-pick"> Opponent's turn <br> will appear here </p>`
+        playerPick = "Rock"
     })  
 
     playerScissors.addEventListener("click", () => {
         let playerPickContainer = document.getElementById("player-pick")
         playerPickContainer.innerHTML = `<img src="./images/scissors-inserted.png" alt="Scissors hand" class="inserted-img">`
+        computerPickContainer.innerHTML = `<p class="computer" id="computer-pick"> Opponent's turn <br> will appear here </p>`
+        playerPick = "Scissors"
     })
 
-        playerPaper.addEventListener("click", () => {
+    playerPaper.addEventListener("click", () => {
         let playerPickContainer = document.getElementById("player-pick")
         playerPickContainer.innerHTML = `<img src="./images/paper-inserted.png" alt="Paper hand" class="inserted-img">`
+        computerPickContainer.innerHTML = `<p class="computer" id="computer-pick"> Opponent's turn <br> will appear here </p>`
+        playerPick = "Paper"
     })
-})
-
-document.addEventListener("DOMContentLoaded", () => {
-    const submit = document.getElementById("submit-btn")
 
     submit.addEventListener("click", () => {
-        const computerPickContainer = document.getElementById("computer-pick")
-        
-        getComputerChoice()
+        const computerPickContainer = document.getElementById("computer-pick");
+        const playerTurnCard = document.getElementById("player-turn-card");
+        const computerTurnCard = document.getElementById("computer-turn-card");
+        const whoComputer = document.getElementById("who-computer");
+        const whoPlayer = document.getElementById("who-player");
+
+        const computerPick = getComputerChoice();
+
         if (computerPick === "Rock") {
             computerPickContainer.innerHTML = `<img src="./images/rock-inserted.png" alt="Rock hand" class="inserted-img">`
         } else if (computerPick === "Scissors") {
@@ -48,5 +57,39 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             computerPickContainer.innerHTML = `<img src="./images/paper-inserted.png" alt="Paper hand" class="inserted-img">`
         }
-    })
+        
+        //default game state
+        playerTurnCard.className = "player-pick-container";
+        computerTurnCard.className = "computer-pick-container";
+        whoPlayer.className = "who";
+        whoComputer.className = "who";
+
+        //Player winning
+        if (playerPick === "Rock" && computerPick === "Scissors" ||
+            playerPick === "Scissors" && computerPick === "Paper" ||
+            playerPick === "Paper" && computerPick === "Rock") {
+
+            playerTurnCard.className = "win-round-container";
+            computerTurnCard.className = "lose-round-container";
+            whoPlayer.className = "win-who";
+            whoComputer.className = "lose-who";
+
+        //tie
+        } else if (playerPick === computerPick) {
+            playerTurnCard.className = "player-pick-container";
+            computerTurnCard.className = "computer-pick-container";
+            whoPlayer.className = "who";
+            whoComputer.className = "who";
+        
+        //computer winning
+        } else {
+            playerTurnCard.className = "lose-round-container";
+            computerTurnCard.className = "win-round-container";
+            whoPlayer.className = "lose-who";
+            whoComputer.className = "win-who";
+        }
+    });
+
+
+    
 })
