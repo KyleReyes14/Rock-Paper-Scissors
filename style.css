@@ -32,13 +32,10 @@ body {
 
 .scores {
     font-size: 24px;    
-    max-width: 800px;
-    min-width: 300px;
     display: flex;
-    justify-content: flex-start;
-    align-items: space-between;
-    gap: 10rem;
-    padding: 0 1rem;
+    padding: 0 30px;
+    gap: 130px;
+    min-width: 500px
 }
 
 .round-turnoff {
@@ -66,6 +63,11 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 8px;
+}
+
+.computer-pick, .player-pick {
+    color: rgb(109, 109, 109);
+    font-size: 24
 }
 
 .score-bar {
@@ -105,8 +107,18 @@ body {
     background-color: rgb(28, 199, 28);
 }
 
+.player, .computer {
+    align-self: center;
+    justify-self: center;
+    padding-top: 50px;
+    text-align: center;
+}
 
-
-
-
+.inserted-img {
+    height: 100px;
+    width: auto;
+    border-radius: 15px;
+    border: 1px dashed rgb(211, 190, 190);
+    align-self: center
+}
 
