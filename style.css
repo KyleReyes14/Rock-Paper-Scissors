@@ -100,7 +100,7 @@ body {
     flex: 1;
 }
 
-#play-again {
+#submit-btn {
     border-radius: 10px;
     box-sizing: border-box;
     padding: 10px 30px;
