@@ -41,15 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
         playerPick = "Paper"
     })
 
+    //when submit button is clicked
     submit.addEventListener("click", () => {
         const computerPickContainer = document.getElementById("computer-pick");
         const playerTurnCard = document.getElementById("player-turn-card");
         const computerTurnCard = document.getElementById("computer-turn-card");
         const whoComputer = document.getElementById("who-computer");
         const whoPlayer = document.getElementById("who-player");
+        const curPlayerScore = document.getElementById("cur-player-score")
+        const curComputerScore = document.getElementById("cur-computer-score")
 
-        const computerPick = getComputerChoice();
 
+        const computerPick = getComputerChoice(); //runs random computer choice
+
+        //change computer pick container after submit button
         if (computerPick === "Rock") {
             computerPickContainer.innerHTML = `<img src="./images/rock-inserted.png" alt="Rock hand" class="inserted-img">`
         } else if (computerPick === "Scissors") {
@@ -74,6 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
             whoPlayer.className = "win-who";
             whoComputer.className = "lose-who";
 
+            //round score settlement
+            let pPoint = Number(curPlayerScore.textContent);
+            pPoint++;
+            curPlayerScore.textContent = pPoint.toString();
+
+
         //tie
         } else if (playerPick === computerPick) {
             playerTurnCard.className = "player-pick-container";
@@ -87,9 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
             computerTurnCard.className = "win-round-container";
             whoPlayer.className = "lose-who";
             whoComputer.className = "win-who";
+            
+            //round score settlement
+            let cPoint = Number(curComputerScore.textContent);
+            cPoint++;
+            curComputerScore.textContent = cPoint.toString();
         }
     });
-
-
-    
 })
