@@ -178,6 +178,7 @@ body {
     color: white;
     font-size: 40px;
     font-weight: 700;
+    padding: 0px 100px;
     background-color: rgba(19, 185, 19, 0.952);
 }
 
@@ -185,6 +186,7 @@ body {
     color: white;
     font-size: 40px;
     font-weight: 700;
+    padding: 0px 100px;
     background-color: rgba(177, 35, 35, 0.952);
 }
 
@@ -192,5 +194,7 @@ body {
     color: white;
     font-size: 40px;
     font-weight: 700;
-    background-color: rgb(66, 66, 187);
+    box-sizing: border-box;
+    padding: 0px 100px;
+    background-color: rgb(143, 143, 236);
 }

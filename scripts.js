@@ -1,5 +1,5 @@
-let pPoint = 0
-let cPoint = 0
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice () {
     const index = Math.floor(Math.random()*3)
@@ -86,9 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
             whoComputer.className = "lose-who";
 
             //round score settlement
-            let pPoint = Number(curPlayerScore.textContent);
-            pPoint++;
-            curPlayerScore.textContent = pPoint.toString();
+            playerScore++;
+            curPlayerScore.textContent = playerScore.toString();
 
 
         //tie
@@ -106,24 +105,23 @@ document.addEventListener("DOMContentLoaded", () => {
             whoComputer.className = "win-who";
             
             //round score settlement
-            let cPoint = Number(curComputerScore.textContent);
-            cPoint++;
-            curComputerScore.textContent = cPoint.toString();
+            computerScore++;
+            curComputerScore.textContent = computerScore.toString();
         }
 
         //conclude round to 5
         let cRnd = Number(curRound.textContent);
         cRnd++;
         curRound.textContent = cRnd.toString();
-        endRound.disabled = true;
 
-        if (cRnd === 5) {
+        if (cRnd > 5) {
             endRound.textContent = "Please refresh browser"
-            if (pPoint > cPoint) {
+            endRound.disabled = true;
+            if (playerScore > computerScore) {
                 txtRnd.textContent = "You Win! Congratulations!"
                 txtRnd.className = "rnd-win"
 
-            } else if (pPoint < cPoint) {
+            } else if (playerScore < computerScore) {
                 txtRnd.textContent = "You Lose, Try again!"
                 txtRnd.className = "rnd-lose"
             } else {
