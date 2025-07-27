@@ -1,3 +1,6 @@
+let pPoint = 0
+let cPoint = 0
+
 function getComputerChoice () {
     const index = Math.floor(Math.random()*3)
     if (index === 2) {
@@ -50,6 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const whoPlayer = document.getElementById("who-player");
         const curPlayerScore = document.getElementById("cur-player-score")
         const curComputerScore = document.getElementById("cur-computer-score")
+        const curRound = document.getElementById("rnd-num")
+        const endRound = document.getElementById("submit-btn")
+        const txtRnd = document.getElementById("txt-rnd")
 
 
         const computerPick = getComputerChoice(); //runs random computer choice
@@ -104,5 +110,29 @@ document.addEventListener("DOMContentLoaded", () => {
             cPoint++;
             curComputerScore.textContent = cPoint.toString();
         }
+
+        //conclude round to 5
+        let cRnd = Number(curRound.textContent);
+        cRnd++;
+        curRound.textContent = cRnd.toString();
+        endRound.disabled = true;
+
+        if (cRnd === 5) {
+            endRound.textContent = "Please refresh browser"
+            if (pPoint > cPoint) {
+                txtRnd.textContent = "You Win! Congratulations!"
+                txtRnd.className = "rnd-win"
+
+            } else if (pPoint < cPoint) {
+                txtRnd.textContent = "You Lose, Try again!"
+                txtRnd.className = "rnd-lose"
+            } else {
+                txtRnd.textContent = "It's a Tie!"
+                txtRnd.className = "rnd-tie"
+            }
+        } else {
+            txtRnd.className = "rounds"
+        }
+
     });
 })

@@ -174,3 +174,23 @@ body {
     align-self: center
 }
 
+.rnd-win {
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    background-color: rgba(19, 185, 19, 0.952);
+}
+
+.rnd-lose {
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    background-color: rgba(177, 35, 35, 0.952);
+}
+
+.rnd-tie {
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    background-color: rgb(66, 66, 187);
+}
